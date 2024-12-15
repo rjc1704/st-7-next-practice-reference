@@ -23,8 +23,8 @@ function TodoItem({ todo }: Props) {
       <Image
         src={`${todo.imgPath}?random=${Math.random()}`}
         alt="투두 이미지"
-        width={50}
-        height={50}
+        width={100}
+        height={100}
       />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <button onClick={() => router.push(`/todolist/${todo.id}`)}>
