@@ -11,7 +11,10 @@ type Props = {
 export default function DetailContents({ id }: Props) {
   const { data, isPending, error } = useQuery({
     queryKey: ["todos", id],
-    queryFn: getDetail,
+    queryFn: async () => {
+      const todo = await getDetail(id);
+      return todo;
+    },
   });
 
   if (isPending) return <p>로딩중...</p>;

@@ -1,11 +1,8 @@
+"use server";
+
 import { Todo } from "@/types/todo.type";
-import { QueryFunctionContext } from "@tanstack/react-query";
 
-export const getDetail = async ({
-  queryKey,
-}: QueryFunctionContext): Promise<Todo> => {
-  const [, id] = queryKey;
-
+export const getDetail = async (id: Todo["id"]): Promise<Todo> => {
   const response = await fetch(`http://localhost:4000/todos/${id}`);
   if (!response.ok) {
     throw new Error(`Failed to fetch a detail todo ${id}`);
